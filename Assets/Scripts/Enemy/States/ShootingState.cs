@@ -5,14 +5,14 @@ using UnityEngine;
 
 namespace StatePattern.Enemy
 {
-    public class ShootingState : IState
+    public class ShootingState<T> : IState where T : EnemyController
     {
         public EnemyController Owner { get; set; }
-        private IStateMachine stateMachine;
+        private GenericStateMachine<T> stateMachine;
         private PlayerController target;
         private float shootTimer;
 
-        public ShootingState(IStateMachine stateMachine) => this.stateMachine = stateMachine;
+        public ShootingState(GenericStateMachine<T> stateMachine) => this.stateMachine = stateMachine;
 
         public void OnStateEnter()
         {
@@ -25,7 +25,7 @@ namespace StatePattern.Enemy
             Quaternion desiredRotation = CalculateRotationTowardsPlayer();
             Owner.SetRotation(RotateTowards(desiredRotation));
 
-            if(IsRotationComplete(desiredRotation))
+            if (IsRotationComplete(desiredRotation))
             {
                 shootTimer -= Time.deltaTime;
                 if (shootTimer <= 0)
