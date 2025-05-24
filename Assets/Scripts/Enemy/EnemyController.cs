@@ -47,7 +47,7 @@ namespace StatePattern.Enemy
             Agent.speed = enemyScriptableObject.MovementSpeed;
         }
 
-        public virtual void Die() 
+        public virtual void Die()
         {
             GameService.Instance.EnemyService.EnemyDied(this);
             enemyView.Destroy();
@@ -61,8 +61,8 @@ namespace StatePattern.Enemy
 
         public void SetRotation(Quaternion desiredRotation) => enemyView.transform.rotation = desiredRotation;
 
-        public void ToggleEnemyColor(bool value)=>  enemyView.ToggleColor(value);
-        
+        public void ToggleEnemyColor(bool value) => enemyView.ToggleColor(value);
+
 
         public void Shoot()
         {

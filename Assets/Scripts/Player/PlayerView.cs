@@ -26,7 +26,7 @@ namespace StatePattern.Player
 
         private void OnTriggerEnter(Collider other)
         {
-            if(other.GetComponent<EnemyView>() != null && !other.isTrigger)
+            if (other.GetComponent<EnemyView>() != null && !other.isTrigger)
             {
                 var enemyController = other.GetComponent<EnemyView>().Controller;
                 Controller.AddEnemy(enemyController);

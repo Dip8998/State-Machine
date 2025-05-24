@@ -44,7 +44,7 @@ namespace StatePattern.Player
 
         public void UpdatePlayer()
         {
-            if(Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space))
                 UpdateAttack();
         }
 
@@ -57,7 +57,7 @@ namespace StatePattern.Player
 
             Vector3 movementDirection = new Vector3(horizontalInput, 0f, verticalInput).normalized;
 
-            if(movementDirection != Vector3.zero)
+            if (movementDirection != Vector3.zero)
             {
                 RotatePlayer(movementDirection);
                 MovePlayer(movementDirection);
@@ -89,7 +89,7 @@ namespace StatePattern.Player
             playerView.PlayAttackVFX();
             if (enemiesInRange.Count > 0)
             {
-               SoundService.PlaySoundEffects(SoundType.PLAYER_ATTACK);
+                SoundService.PlaySoundEffects(SoundType.PLAYER_ATTACK);
                 foreach (EnemyController enemy in enemiesInRange)
                 {
                     enemy.Die();
@@ -106,7 +106,7 @@ namespace StatePattern.Player
         {
             currentHealth -= damageToInflict;
             SoundService.PlaySoundEffects(SoundType.PLAYER_HIT);
-            if(currentHealth <= 0)
+            if (currentHealth <= 0)
             {
                 currentHealth = 0;
                 PlayerDied();
@@ -122,7 +122,7 @@ namespace StatePattern.Player
         }
 
         public void AddEnemy(EnemyController enemy) => enemiesInRange.Add(enemy);
-            
+
         public void RemoveEnemy(EnemyController enemy) => enemiesInRange.Remove(enemy);
     }
 }
