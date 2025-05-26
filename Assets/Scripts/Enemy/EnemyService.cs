@@ -63,12 +63,21 @@ namespace StatePattern.Enemy
                 case EnemyType.Hitman:
                     enemy = new HitmanController(enemyScriptableObject);
                     break;
+                case EnemyType.CloneMan:
+                    enemy = new CloneManController(enemyScriptableObject);
+                    break;
                 default:
                     enemy = new EnemyController(enemyScriptableObject);
                     break;
             }
 
             return enemy;
+        }
+
+        public void AddEnemy(EnemyController enemy)
+        {
+            activeEnemies.Add(enemy);
+            spawnedEnemies++;
         }
 
         public void EnemyDied(EnemyController deadEnemy)

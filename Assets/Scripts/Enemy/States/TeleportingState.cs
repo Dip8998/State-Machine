@@ -37,10 +37,10 @@ namespace StatePattern.Enemy
 
         private Vector3 GetRandomNavMeshPoint()
         {
-
-            Vector3 randomDirection = Random.insideUnitSphere * 5f + Owner.Position;
+            Vector3 randomDirection = Random.insideUnitSphere * Owner.Data.TeleportRadius + Owner.Position;
             NavMeshHit hit;
-            if (NavMesh.SamplePosition(randomDirection, out hit, 5f, NavMesh.AllAreas))
+
+            if (NavMesh.SamplePosition(randomDirection, out hit, Owner.Data.TeleportRadius, NavMesh.AllAreas))
                 return hit.position;
             else
                 return Owner.Data.SpawnPosition;
