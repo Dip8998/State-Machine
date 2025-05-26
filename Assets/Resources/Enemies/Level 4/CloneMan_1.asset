@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelID: 4
   EnemyPrefab: {fileID: 948247519368844738, guid: 0a8604f6e0964114cbb9a408b6af74a3, type: 3}
-  Type: 3
+  Type: 4
   SpawnPosition: {x: 8, y: 1.5, z: 14}
   SpawnRotation: {x: 0, y: -90, z: 0}
   MovementSpeed: 1.5
@@ -29,3 +29,5 @@ MonoBehaviour:
   - {x: -8, y: 1.5, z: 14}
   - {x: 8, y: 1.5, z: 2.5}
   PlayerStoppingDistance: 3
+  TeleportRadius: 5
+  CloneCount: 2
